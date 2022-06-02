@@ -2,7 +2,7 @@
 const { expect } = require("chai");
 const { polybius } = require("../src/polybius");
 
-describe.only('polybius', () => {
+describe('polybius', () => {
     describe("message handling", () => {
     it("should encode a message by translating each letter to number pairs", () =>{
         const actual = polybius( "test");
@@ -20,12 +20,12 @@ describe.only('polybius', () => {
     expect(actual).to.equal(expected);
 })
     it('should decode a message by translating each pair of numbers into a letter.', () =>{
-        const actual = polybius("44513444");
+        const actual = polybius("44513444", false);
         const expected = "test"
     expect(actual).to.equal(expected);
 });
     it('should return false if the length of all numbers is odd',()=>{
-        const actual = polybius("43434353344");
+        const actual = polybius("43434353344", false);
     expect(actual).to.be.false;
     });
 })
